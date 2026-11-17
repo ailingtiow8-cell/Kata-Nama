@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kembara Dunia Kata Nama</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+:root{--ink:#493c68;--purple:#8065c7;--pink:#ff91ad;--yellow:#ffd66e;--mint:#9de2c4;--blue:#9edafa}
+*{box-sizing:border-box}body{margin:0;font-family:'Nunito',sans-serif;color:var(--ink);background:linear-gradient(145deg,#dff5ff,#f8e9ff 52%,#fff1d5);min-height:100vh;padding:22px}
+button{font:inherit;cursor:pointer;border:0}
+.wrap{max-width:850px;margin:auto}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+.pill{background:#fff9;border:2px solid #fff;padding:9px 15px;border-radius:30px;font-weight:900;box-shadow:0 4px 0 #d9d1ec}
+.hero,.panel{background:#ffffffdf;border:3px solid white;border-radius:30px;box-shadow:0 12px 30px #7566a51c;padding:clamp(20px,4vw,36px);text-align:center}
+.hero{overflow:hidden;position:relative}
+.tag{display:inline-block;background:#e9e0ff;color:#7257b8;padding:7px 15px;border-radius:20px;font-weight:900;font-size:.85rem}
+h1{font-size:clamp(2rem,6vw,3.6rem);line-height:1.05;margin:16px 0 8px;color:#7053b2;text-shadow:2px 3px 0 #eee5ff}
+.subtitle{font-weight:800;color:#887aa7}
+.mascots{font-size:clamp(3.3rem,10vw,6rem);margin:14px 0;filter:drop-shadow(0 5px 2px #e6d8f5)}
+.desc{max-width:570px;margin:10px auto 22px;line-height:1.7}
+.primary{background:linear-gradient(135deg,#9277dc,#7357bd);color:white;padding:14px 26px;border-radius:18px;font-weight:900;font-size:1.05rem;box-shadow:0 6px 0 #59439c;transition:.15s}
+.primary:active{transform:translateY(4px);box-shadow:0 2px 0 #59439c}
+.secondary{background:#fff;color:#7053b2;border:2px solid #ded3ff;padding:11px 18px;border-radius:15px;font-weight:900}
+.hidden{display:none!important}
+.progress{height:13px;background:#eee9f8;border-radius:20px;overflow:hidden;margin:13px 0 22px}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#8edcba,#75c6e9);border-radius:20px;transition:.3s}
+.zone{font-size:.82rem;font-weight:900;letter-spacing:1.5px;color:#8c78bd}
+.qtitle{font-size:clamp(1.25rem,4vw,1.8rem);font-weight:900;margin:12px 0}
+.picture{width:145px;height:130px;margin:14px auto;background:linear-gradient(145deg,#fff4ce,#ffe6ee);border:4px solid white;border-radius:28px;display:grid;place-items:center;font-size:4.6rem;box-shadow:0 7px 0 #eadcf0}
+.word{font-size:1.15rem;font-weight:900;color:#7053b2;margin-top:-4px}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.option{background:white;border:3px solid #e9e1fa;border-radius:18px;padding:17px 10px;font-weight:900;color:#66558c;box-shadow:0 4px 0 #e8e0f3;min-height:68px}
+.option:hover{border-color:#a38be0;transform:translateY(-2px)}
+.option.selected{background:#eee8ff;border-color:#8b70d0}
+.option:disabled{cursor:default;opacity:1}
+.feedback{border-radius:18px;padding:15px;margin:14px 0;text-align:left;font-weight:700;line-height:1.55}
+.good{background:#e4f8ed;color:#28764d}.bad{background:#fff0dc;color:#956125}
+.stats{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:12px 0}
+.stat{background:#fff4ce;padding:8px 14px;border-radius:20px;font-weight:900}
+.footer{font-size:.8rem;text-align:center;color:#8a7da6;margin:16px}
+.result-score{font-size:3.5rem;color:#795bbd;font-weight:1000}
+@media(max-width:520px){body{padding:12px}.options{grid-template-columns:1fr}.top{font-size:.85rem}.picture{width:125px;height:115px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <div class="top"><div class="pill">📚 Bahasa Melayu · Tahun 1</div><div class="pill">⭐ <span id="starTop">0</span> Bintang</div></div>
+ <section id="start" class="hero">
+  <div class="tag">PERMAINAN INTERAKTIF</div>
+  <h1>KEMBARA DUNIA<br>KATA NAMA</h1>
+  <div class="subtitle">✨ Misi Selamatkan Bintang! ✨</div>
+  <div class="mascots">👧🏻 🐰 🌈</div>
+  <p class="desc">Hai, kawan kecil! Bantu Mimi dan Bobo mengumpul 10 bintang ajaib. Kenal pasti <b>Kata Nama Am</b> dan <b>Kata Nama Khas</b> sambil mengembara ke dunia yang menyeronokkan!</p>
+  <div class="stats"><span class="stat">🗺️ 5 Dunia</span><span class="stat">🎯 10 Misi</span><span class="stat">🏆 Ganjaran Bintang</span></div>
+  <button class="primary" onclick="begin()">🚀 MULA PENGEMBARAAN</button>
+ </section>
+ <section id="game" class="panel hidden">
+  <div class="zone" id="zone">KAMPUNG HAIWAN</div>
+  <div style="display:flex;justify-content:space-between;font-weight:900;margin-top:8px"><span id="counter">MISI 1 / 10</span><span>⭐ <span id="stars">0</span></span></div>
+  <div class="progress"><div class="bar" id="bar"></div></div>
+  <div class="qtitle" id="question">Perkataan ini ialah ...</div>
+  <div class="picture"><div><div id="emoji">🐱</div><div class="word" id="word">kucing</div></div></div>
+  <div style="font-weight:800;color:#8c7da9">Pilih jawapan yang betul 👇</div>
+  <div class="options" id="options"></div>
+  <div id="feedback" class="feedback hidden"></div>
+  <button id="check" class="primary" onclick="checkAnswer()" disabled>SEMAK JAWAPAN ✨</button>
+  <button id="next" class="primary hidden" onclick="nextQuestion()">MISI SETERUSNYA ➜</button>
+ </section>
+ <section id="finish" class="hero hidden">
+  <div class="tag">PENGEMBARAAN SELESAI</div>
+  <div class="mascots">🏆🎉🌟</div>
+  <h1>TAHNIAH, JUARA!</h1>
+  <div class="result-score"><span id="finalScore">0</span>/10</div>
+  <p id="message" class="desc"></p>
+  <div class="stats"><span class="stat" id="correctStat">✅ 0 Betul</span><span class="stat" id="wrongStat">💛 0 Salah</span></div>
+  <button class="primary" onclick="restart()">🔄 MAIN SEKALI LAGI</button>
+ </section>
+ <div class="footer">🌼 Belajar sambil bermain · Jom jadi juara Kata Nama! 🌼</div>
+</div>
+<script>
+const data=[
+ {zone:"KAMPUNG HAIWAN",emoji:"🐱",q:"Perkataan ini ialah ...",word:"kucing",opts:["Kata Nama Am","Kata Nama Khas"],a:0,why:"Kucing ialah nama haiwan secara umum."},
+ {zone:"KAMPUNG HAIWAN",emoji:"🐰",q:"'Si Putih' ialah ...",word:"Si Putih",opts:["Kata Nama Am","Kata Nama Khas"],a:1,why:"Si Putih ialah nama khusus bagi seekor arnab."},
+ {zone:"BANDAR CERIA",emoji:"🏫",q:"Perkataan ini ialah ...",word:"sekolah",opts:["Kata Nama Am","Kata Nama Khas"],a:0,why:"Sekolah ialah nama tempat secara umum."},
+ {zone:"BANDAR CERIA",emoji:"🌆",q:"Yang manakah Kata Nama Khas?",word:"Pilih jawapan",opts:["bandar","Kuala Lumpur","negeri"],a:1,why:"Kuala Lumpur ialah nama bandar yang khusus."},
+ {zone:"TAMAN ILMU",emoji:"✏️",q:"Perkataan ini ialah ...",word:"pensel",opts:["Kata Nama Khas","Kata Nama Am"],a:1,why:"Pensel ialah nama benda secara umum."},
+ {zone:"TAMAN ILMU",emoji:"👧🏻",q:"Pilih nama manusia yang khusus.",word:"Siapakah?",opts:["murid","guru","Siti"],a:2,why:"Siti ialah nama khas seseorang."},
+ {zone:"PULAU IMPIAN",emoji:"🐟",q:"Yang manakah Kata Nama Am?",word:"Pilih jawapan",opts:["ikan","Si Comel","Ali"],a:0,why:"Ikan ialah nama haiwan secara umum."},
+ {zone:"PULAU IMPIAN",emoji:"🇲🇾",q:"Perkataan ini ialah ...",word:"Malaysia",opts:["Kata Nama Am","Kata Nama Khas"],a:1,why:"Malaysia ialah nama khas sebuah negara."},
+ {zone:"ISTANA BINTANG",emoji:"📚",q:"Pilih pasangan Kata Nama Am.",word:"Dua perkataan",opts:["Ali dan Siti","buku dan meja","Malaysia dan Ali"],a:1,why:"Buku dan meja ialah nama benda secara umum."},
+ {zone:"ISTANA BINTANG",emoji:"👑",q:"Pilih pasangan Kata Nama Khas.",word:"Dua perkataan",opts:["guru dan murid","kucing dan arnab","Ali dan Siti"],a:2,why:"Ali dan Siti ialah nama khusus manusia."}
+];
+let index=0,score=0,wrong=0,selected=-1,locked=false;
+function begin(){document.getElementById('start').classList.add('hidden');document.getElementById('game').classList.remove('hidden');render()}
+function render(){
+ const d=data[index];selected=-1;locked=false;
+ document.getElementById('zone').textContent=d.zone;
+ document.getElementById('counter').textContent=`MISI ${index+1} / 10`;
+ document.getElementById('stars').textContent=score;document.getElementById('starTop').textContent=score;
+ document.getElementById('bar').style.width=(index/10*100)+'%';
+ document.getElementById('question').textContent=d.q;document.getElementById('emoji').textContent=d.emoji;document.getElementById('word').textContent=d.word;
+ document.getElementById('feedback').className='feedback hidden';
+ document.getElementById('check').classList.remove('hidden');document.getElementById('check').disabled=true;
+ document.getElementById('next').classList.add('hidden');
+ const box=document.getElementById('options');box.innerHTML='';
+ d.opts.forEach((v,i)=>{const b=document.createElement('button');b.className='option';b.textContent=String.fromCharCode(65+i)+'. '+v;b.onclick=()=>choose(i);box.appendChild(b)});
+}
+function choose(i){if(locked)return;selected=i;document.querySelectorAll('.option').forEach((b,j)=>b.classList.toggle('selected',i===j));document.getElementById('check').disabled=false}
+function checkAnswer(){
+ if(selected<0||locked)return;locked=true;const d=data[index],correct=selected===d.a;
+ if(correct)score++;else wrong++;
+ document.querySelectorAll('.option').forEach((b,i)=>{b.disabled=true;if(i===d.a)b.style.borderColor='#69c994';if(i===selected&&!correct)b.style.borderColor='#f0a06e'});
+ const f=document.getElementById('feedback');f.className='feedback '+(correct?'good':'bad');
+ f.innerHTML=(correct?'🎉 <b>Syabas! Jawapan betul!</b>':'💛 <b>Tidak mengapa! Mari belajar bersama.</b>')+'<br>Jawapan: <b>'+d.opts[d.a]+'</b><br>'+d.why;
+ document.getElementById('stars').textContent=score;document.getElementById('starTop').textContent=score;
+ document.getElementById('check').classList.add('hidden');document.getElementById('next').classList.remove('hidden');
+ document.getElementById('next').textContent=index===9?'BUKA PETI HARTA KARUN 🏆':'MISI SETERUSNYA ➜';
+}
+function nextQuestion(){if(index===9){finish();return}index++;render()}
+function finish(){
+ document.getElementById('game').classList.add('hidden');document.getElementById('finish').classList.remove('hidden');
+ document.getElementById('bar').style.width='100%';document.getElementById('finalScore').textContent=score;
+ document.getElementById('message').textContent=score>=9?'Hebat! Kamu memang juara Kata Nama! Teruskan kecemerlangan!':score>=7?'Bagus! Kamu sudah semakin mahir. Teruskan usaha!':score>=5?'Syabas! Teruskan berlatih supaya lebih mahir!':'Jangan putus asa! Cuba lagi dan kamu pasti boleh!';
+ document.getElementById('correctStat').textContent='✅ '+score+' Betul';document.getElementById('wrongStat').textContent='💛 '+wrong+' Salah';
+}
+function restart(){index=0;score=0;wrong=0;document.getElementById('finish').classList.add('hidden');document.getElementById('game').classList.remove('hidden');document.getElementById('starTop').textContent='0';render()}
+</script>
+</body>
+</html>
